@@ -1,9 +1,9 @@
 import React from 'react'
-import banner from '../../public/darkBooks.jpg'
+import banner from '/darkBooks.jpg'
 function Banner() {
 return (
 <>
-    <div className='container max-w-screen-2xl mx-auto md:px-20 px-4 flex flex-col md:flex-row'>
+    <div className='container max-w-screen-2xl mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10'>
         <div className='md:w-1/2 mt-8 md:mt-32 order-2 md:order-1'>
             <div className='space-y-10'>
                 <h1 className='text-2xl font-bold w-23'>Hello everyone,welcome to <span
@@ -30,7 +30,7 @@ return (
 
         </div>
         <div className='w-full order-1 md:w-1/2'>
-            <img src={banner} className="md:w-[550px] md:h-[460px] md:ml-12" alt="booksImg" />
+            <img src={banner} className="md:w-[550px] md:h-[460px] md:ml-12 mt-9" alt="booksImg" />
         </div>
     </div>
 </>
