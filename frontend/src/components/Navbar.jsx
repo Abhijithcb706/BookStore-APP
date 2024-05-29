@@ -1,6 +1,7 @@
-import React from "react";
+// import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import Login from "./Login";
 
 function Navbar() {
   const [theme, setTheme] = useState(
@@ -149,9 +150,12 @@ function Navbar() {
             </label>
 
             <div>
-              <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-zinc-700 duration-200 cursor-pointer">
+              <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-zinc-700 duration-200 cursor-pointer"
+              onClick={()=>document.getElementById("my_modal_3").showModal()}
+              >
                 Login
               </a>
+              <Login/>
             </div>
           </div>
         </div>
