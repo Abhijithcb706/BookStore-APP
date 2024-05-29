@@ -81,7 +81,7 @@ function Signup() {
             </label>
             
             
-            <span> Email</span>
+            <span>Email</span>
 
             <label className="input input-bordered flex items-center gap-2 w-80">
               <svg
