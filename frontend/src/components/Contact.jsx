@@ -1,67 +1,68 @@
-// import React from "react";
+import React from 'react'
 import { useState } from "react";
 import { useEffect } from "react";
 import Login from "./Login";
 
-function Navbar() {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  );
+function Contact() {
 
-  const element = document.documentElement;
-  useEffect(() => {
-    if (theme === "dark") {
-      element.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      document.body.classList.add("dark");
-    } else {
-      element.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      document.body.classList.remove("dark");
-    }
-  }, [theme]);
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+      );
+    
+      const element = document.documentElement;
+      useEffect(() => {
+        if (theme === "dark") {
+          element.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+          document.body.classList.add("dark");
+        } else {
+          element.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+          document.body.classList.remove("dark");
+        }
+      }, [theme]);
+    
+      const [sticky, setSticky] = useState(false);
+      useEffect(() => {
+        const handleScroll = () => {
+          if (window.scrollY > 0) {
+            setSticky(true);
+          } else {
+            setSticky(false);
+          }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, []);
+    
+      const navItems = (
+        <>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/course">Course</a>
+          </li>
+          <li>
+            <a href="/contact">Contact</a>
+          </li>
+          <li>
+            <a>About</a>
+          </li>
+        </>
+      );
 
-  const [sticky, setSticky] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const navItems = (
-    <>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/course">Course</a>
-      </li>
-      <li>
-        <a href="/contact">Contact</a>
-      </li>
-      <li>
-        <a>About</a>
-      </li>
-    </>
-  );
 
   return (
     <>
-      <div
-        className={`container max-w-screen-2xl mx-auto md:px-20 px-4 z-50 fixed top-0 left-0 right-0 ${
+    <div  className={`container max-w-screen-2xl mx-auto md:px-20 px-4 z-50 fixed top-0 left-0 right-0 ${
           sticky
             ? "sticky-navbar shadow-md bg-base-200 dark:bg-slate-700 dark:text-white duration-300 transition-all ease-in-out"
             : ""
-        }`}
-      >
+        }`}>
+        
         <div className="navbar bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
@@ -159,9 +160,17 @@ function Navbar() {
             </div>
           </div>
         </div>
-      </div>
+<div>
+    <h1 className='text-4xl'>
+        Contact Us
+    </h1>
+</div>
+    </div>
+    
     </>
-  );
+  )
 }
 
-export default Navbar;
+export default Contact
+
+//2:19-youtube

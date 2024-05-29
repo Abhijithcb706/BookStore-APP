@@ -126,15 +126,16 @@ function Signup() {
                 className="grow"
                 placeholder="enter your password"
                 {...register("password", { required: true })}
+                
               />
-              
-            </label>
-            <br/>
-            {errors.email && (
+              {errors.password && (
                 <span className="text-sm text-red-500">
                   This field is required
                 </span>
               )}
+            </label>
+            <br/>
+            
           </div>
           <div className="mt-5 flex justify-around content-center">
             <button className="bg-pink-500 btn-secondary text-white hover:bg-pink-800 hover:text-black  w-16 h-8 rounded-md">
