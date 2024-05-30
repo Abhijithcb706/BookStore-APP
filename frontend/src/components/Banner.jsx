@@ -7,7 +7,7 @@ return (
         <div className='md:w-1/2 mt-8 md:mt-32 order-2 md:order-1'>
             <div className='space-y-10'>
                 <h1 className='text-2xl font-bold w-23'>Hello everyone,welcome to <span
-                        className='text-red-900 font-bold text-4xl hover:text-yellow-200'>Book
+                        className='text-red-900 font-bold text-4xl hover:text-yellow-200 hover:text-'>Book
                         Shoppee</span></h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor corrupti at dignissimos magni odit

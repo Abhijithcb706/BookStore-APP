@@ -1,68 +1,67 @@
-import React from 'react'
+import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import Login from "./Login";
 
 function Contact() {
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
 
-    const [theme, setTheme] = useState(
-        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-      );
-    
-      const element = document.documentElement;
-      useEffect(() => {
-        if (theme === "dark") {
-          element.classList.add("dark");
-          localStorage.setItem("theme", "dark");
-          document.body.classList.add("dark");
-        } else {
-          element.classList.remove("dark");
-          localStorage.setItem("theme", "light");
-          document.body.classList.remove("dark");
-        }
-      }, [theme]);
-    
-      const [sticky, setSticky] = useState(false);
-      useEffect(() => {
-        const handleScroll = () => {
-          if (window.scrollY > 0) {
-            setSticky(true);
-          } else {
-            setSticky(false);
-          }
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-          window.removeEventListener("scroll", handleScroll);
-        };
-      }, []);
-    
-      const navItems = (
-        <>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/course">Course</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-          <li>
+  const element = document.documentElement;
+  useEffect(() => {
+    if (theme === "dark") {
+      element.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      document.body.classList.add("dark");
+    } else {
+      element.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      document.body.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const [sticky, setSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navItems = (
+    <>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/course">Course</a>
+      </li>
+      <li>
+        <a href="/contact">Contact</a>
+      </li>
+      {/* <li>
             <a>About</a>
-          </li>
-        </>
-      );
-
+          </li> */}
+    </>
+  );
 
   return (
     <>
-    <div  className={`container max-w-screen-2xl mx-auto md:px-20 px-4 z-50 fixed top-0 left-0 right-0 ${
+      <div
+        className={`container max-w-screen-2xl mx-auto md:px-20 px-4 z-50 fixed top-0 left-0 right-0 ${
           sticky
             ? "sticky-navbar shadow-md bg-base-200 dark:bg-slate-700 dark:text-white duration-300 transition-all ease-in-out"
             : ""
-        }`}>
-        
+        }`}
+      >
         <div className="navbar bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
@@ -93,7 +92,7 @@ function Contact() {
                 {navItems}
               </ul>
             </div>
-            <a className=" text-2xl font-bold">Book shoppee</a>
+            <a className=" text-2xl font-bold cursor-pointer hover:text-lime-300 duration-700" href="/">Book shoppee</a>
           </div>
           <div className="navbar-end space-x-3">
             <div className="navbar-center hidden lg:flex">
@@ -151,26 +150,59 @@ function Contact() {
             </label>
 
             <div>
-              <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-zinc-700 duration-200 cursor-pointer"
-              onClick={()=>document.getElementById("my_modal_3").showModal()}
+              <a
+                className="bg-black text-white px-3 py-2 rounded-md hover:bg-zinc-700 duration-200 cursor-pointer"
+                onClick={() =>
+                  document.getElementById("my_modal_3").showModal()
+                }
               >
                 Login
               </a>
-              <Login/>
+              <Login />
             </div>
           </div>
         </div>
-<div>
-    <h1 className='text-4xl'>
-        Contact Us
-    </h1>
-</div>
-    </div>
-    
+        </div>
+        {/* form */}
+        <div className="w-full h-screen flex flex-col justify-center items-center">
+          <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
+
+          <div className="flex justify-center items-center w-full px-40">
+            <form className="w-80 space-y-6">
+              <div className="flex flex-col">
+                <label className="mb-2">Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Name"
+                  className="p-2 border border-gray-300 rounded"
+                />
+              </div>
+              <div className="flex flex-col">
+                <label className="mb-2">Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your Email"
+                  className="p-2 border border-gray-300 rounded"
+                />
+              </div>
+              <div className="flex flex-col">
+                <label className="mb-2">Message</label>
+                <textarea
+                  placeholder="Type your Message"
+                  className="p-2 border border-gray-300 rounded h-32 resize-none"
+                />
+              </div>
+              <button className="btn btn-info w-20 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      
     </>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
 
 //2:19-youtube
